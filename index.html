@@ -1,0 +1,1471 @@
+<!DOCTYPE html>
+<html lang="my">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>2026 Pindaya Local Guide</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f7f3eb;
+    color: #3d3328;
+}
+
+header {
+    background: #5b3a29;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+header p {
+    margin: 6px 0 0;
+    font-size: 14px;
+}
+
+nav {
+    display: flex;
+    overflow-x: auto;
+    background: #8b634b;
+    white-space: nowrap;
+}
+
+nav button {
+    flex: 0 0 auto;
+    border: none;
+    background: none;
+    color: white;
+    padding: 14px 12px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+nav button:hover {
+    background: #6f4b38;
+}
+
+.container {
+    padding: 15px;
+    padding-bottom: 80px;
+}
+
+.section {
+    display: none;
+}
+
+.section.active {
+    display: block;
+}
+
+.card {
+    background: white;
+    border-radius: 12px;
+    padding: 15px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.card h2,
+.card h3 {
+    color: #5b3a29;
+}
+
+.home-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.home-btn {
+    background: #eee4d5;
+    color: #4d3627;
+    border: none;
+    border-radius: 12px;
+    padding: 20px 10px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.product {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 12px;
+    margin: 10px 0;
+}
+
+.product-title {
+    font-weight: bold;
+    font-size: 17px;
+}
+
+.price {
+    color: #7a4b25;
+    font-weight: bold;
+    margin: 7px 0;
+}
+
+select,
+input,
+textarea {
+    width: 100%;
+    padding: 11px;
+    margin-top: 7px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 15px;
+}
+
+button.main-btn {
+    width: 100%;
+    background: #6b432d;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 12px;
+    font-size: 15px;
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+.category-btn {
+    width: 100%;
+    background: #eee4d5;
+    color: #4d3627;
+    border: none;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.back-btn {
+    background: #8b634b;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 9px 15px;
+    margin-bottom: 12px;
+    cursor: pointer;
+}
+
+#cartBox {
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+    background: #5b3a29;
+    color: white;
+    border-radius: 50px;
+    padding: 13px 18px;
+    box-shadow: 0 3px 10px rgba(0,0,0,.25);
+    cursor: pointer;
+    z-index: 1000;
+}
+
+#cartCount {
+    background: #d8a35d;
+    color: #3d3328;
+    border-radius: 20px;
+    padding: 2px 7px;
+    font-weight: bold;
+}
+
+.cart-item {
+    border-bottom: 1px solid #ddd;
+    padding: 12px 0;
+}
+
+.cart-item button {
+    border: none;
+    border-radius: 5px;
+    padding: 6px 10px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.total-box {
+    background: #f0e4d4;
+    border-radius: 10px;
+    padding: 15px;
+    margin-top: 15px;
+}
+
+.discount {
+    color: green;
+    font-weight: bold;
+}
+
+.success {
+    background: #e4f4e4;
+    color: #245b24;
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+.warning {
+    background: #fff3cd;
+    color: #664d03;
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+.empty-cart {
+    text-align: center;
+    padding: 25px 10px;
+    color: #777;
+}
+
+.small-note {
+    font-size: 13px;
+    color: #777;
+}
+
+.order-summary {
+    white-space: pre-line;
+    background: #fafafa;
+    padding: 10px;
+    border-radius: 8px;
+    margin-top: 10px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<h1>2026 Pindaya Local Guide</h1>
+
+<p>Discover • Explore • Order</p>
+
+</header>
+
+
+<nav>
+
+<button onclick="showSection('home')">Home</button>
+
+<button onclick="showSection('places')">Places</button>
+
+<button onclick="showSection('coffeeTea')">Coffee & Tea</button>
+
+<button onclick="showSection('localShop')">Local Shop</button>
+
+<button onclick="showSection('hotels')">Hotels & Home Stay</button>
+
+<button onclick="showSection('travel')">Travel & Transportation</button>
+
+<button onclick="showSection('contact')">Contact</button>
+
+</nav>
+
+
+<div class="container">
+
+
+<!-- HOME -->
+
+<div id="home" class="section active">
+
+<div class="card">
+
+<h2>🏡 ပင်းတယမှ ကြိုဆိုပါတယ်</h2>
+
+<p>
+2026 Pindaya Local Guide မှာ
+ပင်းတယမြို့ရဲ့ နေရာများ၊
+ဒေသထွက်ကုန်များ၊
+Coffee & Tea များနဲ့
+ခရီးသွားအချက်အလက်များကို
+လေ့လာနိုင်ပါတယ်။
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h2>Explore Pindaya</h2>
+
+<div class="home-grid">
+
+<button class="home-btn"
+onclick="showSection('places')">
+🌄<br>Places
+</button>
+
+<button class="home-btn"
+onclick="showSection('coffeeTea')">
+☕<br>Coffee & Tea
+</button>
+
+<button class="home-btn"
+onclick="showSection('localShop')">
+🛍️<br>Local Shop
+</button>
+
+<button class="home-btn"
+onclick="showSection('hotels')">
+🏠<br>Hotels & Home Stay
+</button>
+
+<button class="home-btn"
+onclick="showSection('travel')">
+🚗<br>Travel & Transportation
+</button>
+
+<button class="home-btn"
+onclick="showSection('contact')">
+📞<br>Contact
+</button>
+
+</div>
+
+</div>
+
+
+<div class="card">
+
+<h2>🛒 Order Here</h2>
+
+<p>
+Taung Paw Gyi Coffee, Green Tea နှင့် Black Tea
+များကို Online မှာ Order တင်နိုင်ပါတယ်။
+</p>
+
+<button class="main-btn"
+onclick="showSection('coffeeTea')">
+View Products
+</button>
+
+</div>
+
+</div>
+
+
+<!-- PLACES -->
+
+<div id="places" class="section">
+
+<div class="card">
+
+<button class="back-btn"
+onclick="showSection('home')">
+← Home
+</button>
+
+<h2>🌄 Places</h2>
+
+<h3>🛕 ရွှေဥမင် သဘာဝလှိုဏ်ဂူ</h3>
+
+<p>
+ပင်းတယရွှေဥမင် သဘာဝလှိုဏ်ဂူဘုရားသည်
+ရှမ်းပြည်နယ်၊ ပင်းတယမြို့တွင်
+တည်ရှိသော ထင်ရှားသည့်
+လည်ပတ်စရာနေရာတစ်ခု ဖြစ်ပါသည်။
+</p>
+
+<h3>🌊 ပုန်းတလုတ်ရေကန်</h3>
+
+<p>
+ပုန်းတလုတ်ရေကန်သည်
+ရွှေဥမင်လှိုဏ်ဂူအနီး
+ပင်းတယမြို့တွင် တည်ရှိပါသည်။
+</p>
+
+</div>
+
+</div>
+
+
+<!-- COFFEE TEA -->
+
+<div id="coffeeTea" class="section">
+
+<div class="card">
+
+<button class="back-btn"
+onclick="showSection('home')">
+← Home
+</button>
+
+<h2>☕ Coffee & Tea</h2>
+
+<p>မှာယူလိုသော အမျိုးအစားကို ရွေးချယ်ပါ။</p>
+
+<button class="category-btn"
+onclick="showProduct('coffee')">
+☕ Coffee
+</button>
+
+<button class="category-btn"
+onclick="showProduct('tea')">
+🍃 Tea
+</button>
+
+</div>
+
+
+<!-- COFFEE -->
+
+<div id="coffeeProducts" style="display:none">
+
+<div class="card">
+
+<h2>☕ Coffee</h2>
+
+
+<div class="product">
+
+<div class="product-title">
+🔥 Roasted Bean
+</div>
+
+<p class="small-note">
+ရွေးချယ်နိုင်သော အရွယ်အစား
+</p>
+
+<select id="roastedBeanSize">
+
+<option value="6500">100 g — 6,500 Ks</option>
+<option value="13000">200 g — 13,000 Ks</option>
+<option value="32500">500 g — 32,500 Ks</option>
+<option value="65000">1 kg — 65,000 Ks</option>
+
+</select>
+
+<div id="roastedBeanPrice" class="price">
+6,500 Ks
+</div>
+
+<button class="main-btn"
+onclick="addCoffeeProduct('roastedBean')">
+🛒 Add Roasted Bean to Cart
+</button>
+
+</div>
+
+
+<div class="product">
+
+<div class="product-title">
+☕ Coffee Powder
+</div>
+
+<p class="small-note">
+ရွေးချယ်နိုင်သော အရွယ်အစား
+</p>
+
+<select id="coffeePowderSize">
+
+<option value="7500">100 g — 7,500 Ks</option>
+<option value="15000">200 g — 15,000 Ks</option>
+<option value="37500">500 g — 37,500 Ks</option>
+<option value="75000">1 kg — 75,000 Ks</option>
+
+</select>
+
+<div id="coffeePowderPrice" class="price">
+7,500 Ks
+</div>
+
+<button class="main-btn"
+onclick="addCoffeeProduct('coffeePowder')">
+🛒 Add Coffee Powder to Cart
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- TEA -->
+
+<div id="teaProducts" style="display:none">
+
+<div class="card">
+
+<h2>🍃 Tea</h2>
+
+
+<div class="product">
+
+<div class="product-title">
+🍃 Green Tea
+</div>
+
+<select id="greenTeaSize"
+onchange="updateTeaPrice('greenTea')">
+
+<option value="28000">1 Viss — 28,000 Ks</option>
+<option value="84000">3 Viss — 84,000 Ks</option>
+<option value="140000">5 Viss — 140,000 Ks</option>
+<option value="280000">10 Viss — 280,000 Ks</option>
+
+</select>
+
+<div id="greenTeaPrice" class="price">
+28,000 Ks
+</div>
+
+<button class="main-btn"
+onclick="addGreenTea()">
+🛒 Add Green Tea to Cart
+</button>
+
+</div>
+
+
+<div class="product">
+
+<div class="product-title">
+🖤 Black Tea
+</div>
+
+<select id="blackTeaSize"
+onchange="updateTeaPrice('blackTea')">
+
+<option value="22000">1 Viss — 22,000 Ks</option>
+<option value="66000">3 Viss — 66,000 Ks</option>
+<option value="110000">5 Viss — 110,000 Ks</option>
+<option value="220000">10 Viss — 220,000 Ks</option>
+
+</select>
+
+<div id="blackTeaPrice" class="price">
+22,000 Ks
+</div>
+
+<button class="main-btn"
+onclick="addBlackTea()">
+🛒 Add Black Tea to Cart
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- LOCAL SHOP -->
+
+<div id="localShop" class="section">
+
+<div class="card">
+
+<button class="back-btn"
+onclick="showSection('home')">
+← Home
+</button>
+
+<h2>🛍 Local Shop</h2>
+
+<h3>
+ခရီးသွားများနှင့် လက်ဆောင်ပစ္စည်း ဝယ်ယူသူများအတွက်
+</h3>
+
+<p>
+ပင်းတယ ရိုးရာ (Pindaya Souvenir & Local Products)<br>
+ရွှေဥမင် လက်ဆောင်မွန် (Shwe Oo Min Local Gifts)<br>
+ပင်းတယ ထီးနှင့် လက်ဖက်ရိုးရာ (Pindaya Paper Umbrella & Tea Store)<br>
+ဓနုမြေ လက်ဆောင် (Danu Land Souvenir Shop)
+</p>
+
+</div>
+
+</div>
+
+
+<!-- HOTELS -->
+
+<div id="hotels" class="section">
+
+<div class="card">
+
+<button class="back-btn"
+onclick="showSection('home')">
+← Home
+</button>
+
+<h2>🏠 Hotels & Home Stay</h2>
+
+<p>
+ပင်းတယမြို့အတွင်းရှိ Hotels နှင့် Home Stay
+အချက်အလက်များကို ဒီနေရာတွင် ထည့်သွင်းနိုင်ပါတယ်။
+</p>
+
+</div>
+
+</div>
+
+
+<!-- TRAVEL -->
+
+<div id="travel" class="section">
+
+<div class="card">
+
+<button class="back-btn"
+onclick="showSection('home')">
+← Home
+</button>
+
+<h2>🚗 Travel & Transportation</h2>
+
+<h3>🚌 ပင်းတယ = ရန်ကုန်</h3>
+
+<p>
+Lumbini Express<br>
+Elite Express
+</p>
+
+<h3>🚌 ပင်းတယ = မန္တလေး</h3>
+
+<p>
+ရွှေဓနု<br>
+နယူးမန္တလာ<br>
+ဇွဲချယ်ရီ
+</p>
+
+<h3>🚌 ပင်းတယ = တောင်ကြီး</h3>
+
+<p>
+ချယ်ရီမေ<br>
+သုဓနု<br>
+ရွှေဥမင်
+</p>
+
+</div>
+
+</div>
+
+
+<!-- CONTACT -->
+
+<div id="contact" class="section">
+
+<div class="card">
+
+<button class="back-btn"
+onclick="showSection('home')">
+← Home
+</button>
+
+<h2>📞 Contact</h2>
+
+<p>
+Order နှင့် Local Guide အချက်အလက်များအတွက်
+ဆက်သွယ်နိုင်ပါတယ်။
+</p>
+
+<p>
+<strong>Ph (Viber): 09263100981</strong>         <br>
+    <strong>Ph (Viber) :09786116078</strong>
+</p>
+
+</div>
+
+</div>
+
+
+<!-- CART -->
+
+<div id="cartSection" class="section">
+
+<div class="card">
+
+<button class="back-btn"
+onclick="showSection('home')">
+← Home
+</button>
+
+<h2>🛒 Your Cart</h2>
+
+<div id="cartItems"></div>
+
+<div class="total-box">
+
+<p>
+Subtotal:
+<strong>
+<span id="subtotal">0</span> Ks
+</strong>
+</p>
+
+<p class="discount">
+Discount 10%:
+<span id="discount">0</span> Ks
+</p>
+
+<p>
+Total:
+<strong>
+<span id="total">0</span> Ks
+</strong>
+</p>
+
+<p class="small-note">
+💡 100,000 Ks နှင့်အထက် Order များအတွက်
+10% Discount ရရှိပါမည်။
+</p>
+
+</div>
+
+
+<h3>👤 Customer Information</h3>
+
+<input
+id="customerName"
+placeholder="Customer Name">
+
+<input
+id="customerPhone"
+placeholder="Phone Number"
+type="tel">
+
+<textarea
+id="customerAddress"
+placeholder="Delivery Address"
+rows="4"></textarea>
+
+<button
+class="main-btn"
+onclick="placeOrder()">
+
+📦 Place Order
+
+</button>
+
+<div id="orderResult"></div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- FLOATING CART -->
+
+<div id="cartBox"
+onclick="showSection('cartSection')">
+
+🛒 Cart
+
+<span id="cartCount">0</span>
+
+</div>
+
+
+<script>
+
+
+/* =========================================
+   GOOGLE APPS SCRIPT WEB APP URL
+   ========================================= */
+
+
+const GOOGLE_SCRIPT_URL = 
+    "https://script.google.com/macros/s/AKfycbyush58USUfb-R-59Bn7hxNlSeMa7XnAm_M3nbCnXU_Um-04ROE2NlqHmt6qUsGdrwh8g/exec";
+
+
+/* =========================================
+   CART
+   ========================================= */
+
+let cart = [];
+
+
+/* =========================================
+   SECTION
+   ========================================= */
+
+function showSection(id) {
+
+    document
+    .querySelectorAll(".section")
+    .forEach(function(section) {
+
+        section.classList.remove("active");
+
+    });
+
+    const target =
+    document.getElementById(id);
+
+    if (target) {
+
+        target.classList.add("active");
+
+    }
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+}
+
+
+/* =========================================
+   PRODUCT CATEGORY
+   ========================================= */
+
+function showProduct(type) {
+
+    document.getElementById(
+        "coffeeProducts"
+    ).style.display = "none";
+
+    document.getElementById(
+        "teaProducts"
+    ).style.display = "none";
+
+    if (type === "coffee") {
+
+        document.getElementById(
+            "coffeeProducts"
+        ).style.display = "block";
+
+    }
+
+    if (type === "tea") {
+
+        document.getElementById(
+            "teaProducts"
+        ).style.display = "block";
+
+    }
+
+}
+
+
+/* =========================================
+   COFFEE PRICE
+   ========================================= */
+
+document.getElementById(
+    "roastedBeanSize"
+).addEventListener("change", function() {
+
+    document.getElementById(
+        "roastedBeanPrice"
+    ).innerText =
+    Number(this.value).toLocaleString() + " Ks";
+
+});
+
+
+document.getElementById(
+    "coffeePowderSize"
+).addEventListener("change", function() {
+
+    document.getElementById(
+        "coffeePowderPrice"
+    ).innerText =
+    Number(this.value).toLocaleString() + " Ks";
+
+});
+
+
+/* =========================================
+   ADD COFFEE
+   ========================================= */
+
+function addCoffeeProduct(type) {
+
+    let select;
+    let productName;
+
+    if (type === "roastedBean") {
+
+        select =
+        document.getElementById(
+            "roastedBeanSize"
+        );
+
+        productName = "Roasted Bean";
+
+    }
+
+    if (type === "coffeePowder") {
+
+        select =
+        document.getElementById(
+            "coffeePowderSize"
+        );
+
+        productName = "Coffee Powder";
+
+    }
+
+    const price = Number(select.value);
+
+    const text =
+    select.options[
+        select.selectedIndex
+    ].text;
+
+    const size =
+    text.split("—")[0].trim();
+
+    addToCart(
+        productName + " " + size,
+        price
+    );
+
+}
+
+
+/* =========================================
+   TEA PRICE
+   ========================================= */
+
+function updateTeaPrice(type) {
+
+    let select;
+    let priceElement;
+
+    if (type === "greenTea") {
+
+        select =
+        document.getElementById(
+            "greenTeaSize"
+        );
+
+        priceElement =
+        document.getElementById(
+            "greenTeaPrice"
+        );
+
+    }
+
+    if (type === "blackTea") {
+
+        select =
+        document.getElementById(
+            "blackTeaSize"
+        );
+
+        priceElement =
+        document.getElementById(
+            "blackTeaPrice"
+        );
+
+    }
+
+    priceElement.innerText =
+    Number(select.value).toLocaleString()
+    + " Ks";
+
+}
+
+
+/* =========================================
+   GREEN TEA
+   ========================================= */
+
+function addGreenTea() {
+
+    const select =
+    document.getElementById(
+        "greenTeaSize"
+    );
+
+    const price = Number(select.value);
+
+    const text =
+    select.options[
+        select.selectedIndex
+    ].text;
+
+    const size =
+    text.split("—")[0].trim();
+
+    addToCart(
+        "Green Tea " + size,
+        price
+    );
+
+}
+
+
+/* =========================================
+   BLACK TEA
+   ========================================= */
+
+function addBlackTea() {
+
+    const select =
+    document.getElementById(
+        "blackTeaSize"
+    );
+
+    const price = Number(select.value);
+
+    const text =
+    select.options[
+        select.selectedIndex
+    ].text;
+
+    const size =
+    text.split("—")[0].trim();
+
+    addToCart(
+        "Black Tea " + size,
+        price
+    );
+
+}
+
+
+/* =========================================
+   ADD CART
+   ========================================= */
+
+function addToCart(name, price) {
+
+    let existing =
+    cart.find(function(item) {
+
+        return item.name === name;
+
+    });
+
+    if (existing) {
+
+        existing.qty++;
+
+    } else {
+
+        cart.push({
+
+            name: name,
+            price: price,
+            qty: 1
+
+        });
+
+    }
+
+    updateCart();
+
+    alert(
+        name + " added to cart."
+    );
+
+}
+
+
+/* =========================================
+   UPDATE CART
+   ========================================= */
+
+function updateCart() {
+
+    const cartItems =
+    document.getElementById(
+        "cartItems"
+    );
+
+    cartItems.innerHTML = "";
+
+    let subtotal = 0;
+    let count = 0;
+
+    if (cart.length === 0) {
+
+        cartItems.innerHTML = `
+        <div class="empty-cart">
+        🛒 Cart is empty.
+        <br><br>
+        Please select products.
+        </div>
+        `;
+
+    }
+
+    cart.forEach(function(item, index) {
+
+        const itemTotal =
+        item.price * item.qty;
+
+        subtotal += itemTotal;
+
+        count += item.qty;
+
+        const div =
+        document.createElement("div");
+
+        div.className = "cart-item";
+
+        div.innerHTML = `
+
+        <strong>${item.name}</strong>
+
+        <br><br>
+
+        ${item.price.toLocaleString()}
+        Ks × ${item.qty}
+
+        =
+
+        <strong>
+        ${itemTotal.toLocaleString()} Ks
+        </strong>
+
+        <br><br>
+
+        <button onclick="changeQty(${index},-1)">
+        −
+        </button>
+
+        <button onclick="changeQty(${index},1)">
+        +
+        </button>
+
+        <button onclick="removeItem(${index})">
+        Remove
+        </button>
+
+        `;
+
+        cartItems.appendChild(div);
+
+    });
+
+
+    let discount = 0;
+
+    if (subtotal >= 100000) {
+
+        discount =
+        subtotal * 0.10;
+
+    }
+
+    const total =
+    subtotal - discount;
+
+
+    document.getElementById(
+        "subtotal"
+    ).innerText =
+    subtotal.toLocaleString();
+
+    document.getElementById(
+        "discount"
+    ).innerText =
+    discount.toLocaleString();
+
+    document.getElementById(
+        "total"
+    ).innerText =
+    total.toLocaleString();
+
+    document.getElementById(
+        "cartCount"
+    ).innerText =
+    count;
+
+}
+
+
+/* =========================================
+   QUANTITY
+   ========================================= */
+
+function changeQty(index, amount) {
+
+    if (!cart[index]) return;
+
+    cart[index].qty += amount;
+
+    if (cart[index].qty <= 0) {
+
+        cart.splice(index, 1);
+
+    }
+
+    updateCart();
+
+}
+
+
+/* =========================================
+   REMOVE
+   ========================================= */
+
+function removeItem(index) {
+
+    cart.splice(index, 1);
+
+    updateCart();
+
+}
+
+
+/* =========================================
+   PLACE ORDER
+   ========================================= */
+
+function placeOrder() {
+
+    if (cart.length === 0) {
+
+        alert(
+            "Your cart is empty."
+        );
+
+        return;
+
+    }
+
+
+    const name =
+    document.getElementById(
+        "customerName"
+    ).value.trim();
+
+
+    const phone =
+    document.getElementById(
+        "customerPhone"
+    ).value.trim();
+
+
+    const address =
+    document.getElementById(
+        "customerAddress"
+    ).value.trim();
+
+
+    if (!name || !phone || !address) {
+
+        alert(
+            "Please fill in Customer Name, Phone Number and Address."
+        );
+
+        return;
+
+    }
+
+
+    let subtotal = 0;
+
+    let productText = "";
+
+
+    cart.forEach(function(item) {
+
+        const itemTotal =
+        item.price * item.qty;
+
+        subtotal += itemTotal;
+
+        productText +=
+        item.name +
+        " x " +
+        item.qty +
+        " = " +
+        itemTotal.toLocaleString() +
+        " Ks\n";
+
+    });
+
+
+    let discount = 0;
+
+    if (subtotal >= 100000) {
+
+        discount =
+        subtotal * 0.10;
+
+    }
+
+
+    const total =
+    subtotal - discount;
+
+
+    const orderData = {
+
+        orderDate:
+        new Date().toLocaleString(),
+
+        name: name,
+
+        phone: phone,
+
+        address: address,
+
+        products: productText,
+
+        subtotal: subtotal,
+
+        discount: discount,
+
+        total: total
+
+    };
+
+
+    const result =
+    document.getElementById(
+        "orderResult"
+    );
+
+
+    result.innerHTML = `
+
+    <div class="success">
+
+    ⏳ Order ပို့နေပါတယ်...
+
+    </div>
+
+    `;
+
+
+    fetch(
+        GOOGLE_SCRIPT_URL,
+        {
+
+            method: "POST",
+
+            mode: "no-cors",
+
+            headers: {
+
+                "Content-Type":
+                "text/plain;charset=utf-8"
+
+            },
+
+            body:
+            JSON.stringify(orderData)
+
+        }
+
+    )
+
+    .then(function() {
+
+        result.innerHTML = `
+
+        <div class="success">
+
+        ✅ Order ပို့ပြီးပါပြီ။
+
+        <br><br>
+
+        Customer:
+        <strong>${name}</strong>
+
+        <br>
+
+        Phone:
+        <strong>${phone}</strong>
+
+        <br><br>
+
+        Total:
+        <strong>
+        ${total.toLocaleString()} Ks
+        </strong>
+
+        <br><br>
+
+        ကျေးဇူးတင်ပါတယ်ရှင့်။ ❤️
+
+        </div>
+
+        `;
+
+
+        cart = [];
+
+        updateCart();
+
+
+        document.getElementById(
+            "customerName"
+        ).value = "";
+
+        document.getElementById(
+            "customerPhone"
+        ).value = "";
+
+        document.getElementById(
+            "customerAddress"
+        ).value = "";
+
+    })
+
+    .catch(function(error) {
+
+        console.error(error);
+
+        result.innerHTML = `
+
+        <div class="warning">
+
+        ❌ Order ပို့၍ မရပါ။
+
+        <br><br>
+
+        Google Apps Script URL
+        သို့မဟုတ် Internet connection
+        ကို စစ်ပေးပါ။
+
+        </div>
+
+        `;
+
+    });
+
+}
+
+
+/* =========================================
+   START
+   ========================================= */
+
+updateCart();
+
+showSection("home");
+
+</script>
+
+</body>
+
+</html>
