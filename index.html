@@ -751,11 +751,19 @@ placeholder="Customer Name">
 id="customerPhone"
 placeholder="Phone Number"
 type="tel">
+    
+<input
+    type="email"
+    id="customerEmail"
+    placeholder="Customer Email"
+/>
+
 
 <textarea
 id="customerAddress"
 placeholder="Delivery Address"
 rows="4"></textarea>
+    
 
 <!-- Payment Method -->
 <label for="paymentMethod">ငွေပေးချေမှုပုံစံ (Payment Method)</label>
@@ -1271,12 +1279,19 @@ function placeOrder() {
     document.getElementById(
         "customerPhone"
     ).value.trim();
+    
+const email =
+    document.getElementById(
+        "customerEmail"
+    ).value.trim();
 
 
     const address =
     document.getElementById(
         "customerAddress"
     ).value.trim();
+    
+    
 
 
 const paymentMethod = 
@@ -1340,6 +1355,8 @@ document.getElementById(
         phone: phone,
 
         address: address,
+        
+         email: email,
 
         products: productText,
 
