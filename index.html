@@ -757,6 +757,16 @@ id="customerAddress"
 placeholder="Delivery Address"
 rows="4"></textarea>
 
+<!-- Payment Method -->
+<label for="paymentMethod">ငွေပေးချေမှုပုံစံ (Payment Method)</label>
+<select id="paymentMethod" name="paymentMethod" required>
+  <option value="">ငွေပေးချေမှုပုံစံ ရွေးပါ</option>
+  <option value="KBZPay">KBZPay</option>
+  <option value="WavePay">WavePay</option>
+  <option value="Cash on Delivery">ပစ္စည်းရောက်မှ ငွေချေ (COD)</option>
+</select>
+
+
 <button
 class="main-btn"
 onclick="placeOrder()">
@@ -1269,6 +1279,9 @@ function placeOrder() {
     ).value.trim();
 
 
+const paymentMethod = 
+document.getElementById(
+"paymentMethod").value;
     if (!name || !phone || !address) {
 
         alert(
