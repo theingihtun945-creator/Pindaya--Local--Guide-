@@ -250,6 +250,50 @@ button.main-btn {
     margin-top: 10px;
 }
 
+.roasted-bean-image {
+    width: 100%;
+    max-width: 320px;
+    height: 220px;
+    object-fit: contain;
+    display: block;
+    margin: 10px auto;
+    border-radius: 10px;
+}
+
+.product-image-box {
+    text-align: center;
+}
+    
+    
+.coffee-powder-image {
+    width: 100%;
+    max-width: 320px;
+    height: 220px;
+    object-fit: contain;
+    display: block;
+    margin: 10px auto;
+    border-radius: 10px;
+}
+
+.product-image-box {
+    text-align: center;
+}
+
+.tea-product-image {
+    width: 100%;
+    max-width: 320px;
+    height: 220px;
+    object-fit: contain;
+    display: block;
+    margin: 10px auto;
+    border-radius: 10px;
+}
+
+.product-image-box {
+    text-align: center;
+}
+
+
 </style>
 
 </head>
@@ -320,7 +364,8 @@ onclick="showSection('places')">
 
 <button class="home-btn"
 onclick="showSection('coffeeTea')">
-☕<br>Coffee & Tea
+☕<br>Coffee & Tea 
+  
 </button>
 
 <button class="home-btn"
@@ -382,6 +427,12 @@ onclick="showSection('home')">
 
 <h3>🛕 ရွှေဥမင် သဘာဝလှိုဏ်ဂူ</h3>
 
+<img
+  src="pdy.jpg"
+  alt="ရွှေဥမင် သဘာဝလှိုဏ်ဂူ"
+  style="width:100%; max-width:400px; height:auto; border-radius:12px;"
+>
+
 <p>
 ပင်းတယရွှေဥမင် သဘာဝလှိုဏ်ဂူဘုရားသည်
 ရှမ်းပြည်နယ်၊ ပင်းတယမြို့တွင်
@@ -391,10 +442,28 @@ onclick="showSection('home')">
 
 <h3>🌊 ပုန်းတလုတ်ရေကန်</h3>
 
+<img
+  src="lake.jpg"
+  alt="ပုန်းတလုတ်ရေကန်"
+  style="width:100%; max-width:400px; height:auto; border-radius:12px;"
+>
+
 <p>
 ပုန်းတလုတ်ရေကန်သည်
 ရွှေဥမင်လှိုဏ်ဂူအနီး
 ပင်းတယမြို့တွင် တည်ရှိပါသည်။
+</p>
+    <h3> Babylon trekking</h3>
+
+<img
+  src="bl.jpg"
+  alt="‌ပင်းတယ မဲနယ်‌ေတာင်‌ေခါ် ‌ေဘဘီလုံ"
+  style="width:100%; max-width:400px; height:auto; border-radius:12px;"
+>
+
+<p>
+Mae Nal Taung – Babylon Campsite
+    ပင်လယ်‌ေရမျက်နှာပြင် အမြင့်‌ေပ 6623 Ft 
 </p>
 
 </div>
@@ -436,7 +505,7 @@ onclick="showProduct('tea')">
 
 <div class="card">
 
-<h2>☕ Coffee</h2>
+<h2>☕ Taung Paw Gyi Coffee</h2>
 
 
 <div class="product">
@@ -444,9 +513,17 @@ onclick="showProduct('tea')">
 <div class="product-title">
 🔥 Roasted Bean
 </div>
+    
+<div class="product-image-box">
+    <img
+        src="rc.jpg"
+        alt="Taung Paw Gyi Coffee Roasted Bean"
+        class="roasted-bean-image">
+</div>
+
 
 <p class="small-note">
-ရွေးချယ်နိုင်သော အရွယ်အစား
+ရွေးချယ်နိုင်သော အ‌ေလးချိန်များ **Gram/Kilogram**
 </p>
 
 <select id="roastedBeanSize">
@@ -472,36 +549,50 @@ onclick="addCoffeeProduct('roastedBean')">
 
 <div class="product">
 
-<div class="product-title">
-☕ Coffee Powder
+    <div class="product-title">
+        ☕ Coffee Powder
+    </div>
+
+    <!-- Coffee Powder ပုံ -->
+    <div class="product-image-box">
+        <img
+            src="pc.jpg"
+            alt="Taung Paw Gyi Coffee Powder"
+            class="coffee-powder-image">
+    </div>
+
+    <p class="small-note">
+        ကြိတ်မှုန့်အမျိုးအစား ရွေးချယ်ပါ
+    </p>
+
+    <select id="coffeePowderType">
+        <option value="အနုမှုန့်">အနုမှုန့် (Fine)</option>
+        <option value="အကြမ်းမှုန့်">အကြမ်းမှုန့် (Coarse)</option>
+    </select>
+
+    <p class="small-note">
+        ရွေးချယ်နိုင်သော အ‌ေလးချိန်များ **Gram/Kilogram**
+    </p>
+
+    <select id="coffeePowderSize">
+        <option value="7500">100 g — 7,500 Ks</option>
+        <option value="15000">200 g — 15,000 Ks</option>
+        <option value="37500">500 g — 37,500 Ks</option>
+        <option value="75000">1 kg — 75,000 Ks</option>
+    </select>
+
+    <div id="coffeePowderPrice" class="price">
+        7,500 Ks
+    </div>
+
+    <button class="main-btn"
+        onclick="addCoffeeProduct('coffeePowder')">
+        🛒 Add Coffee Powder to Cart
+    </button>
+
 </div>
-
-<p class="small-note">
-ရွေးချယ်နိုင်သော အရွယ်အစား
-</p>
-
-<select id="coffeePowderSize">
-
-<option value="7500">100 g — 7,500 Ks</option>
-<option value="15000">200 g — 15,000 Ks</option>
-<option value="37500">500 g — 37,500 Ks</option>
-<option value="75000">1 kg — 75,000 Ks</option>
-
-</select>
-
-<div id="coffeePowderPrice" class="price">
-7,500 Ks
 </div>
-
-<button class="main-btn"
-onclick="addCoffeeProduct('coffeePowder')">
-🛒 Add Coffee Powder to Cart
-</button>
-
 </div>
-
-</div>
-
 </div>
 
 
@@ -518,6 +609,13 @@ onclick="addCoffeeProduct('coffeePowder')">
 
 <div class="product-title">
 🍃 Green Tea
+</div>
+
+<div class="product-image-box">
+    <img
+        src="gt.jpg"
+        alt="Taung Paw Gyi Green Tea"
+        class="tea-product-image">
 </div>
 
 <select id="greenTeaSize"
@@ -547,6 +645,14 @@ onclick="addGreenTea()">
 <div class="product-title">
 🖤 Black Tea
 </div>
+    
+<div class="product-image-box">
+    <img
+        src="bt.jpg"
+        alt="Taung Paw Gyi Black Tea"
+        class="tea-product-image">
+</div>
+
 
 <select id="blackTeaSize"
 onchange="updateTeaPrice('blackTea')">
@@ -751,29 +857,11 @@ placeholder="Customer Name">
 id="customerPhone"
 placeholder="Phone Number"
 type="tel">
-    
-<input
-    type="email"
-    id="customerEmail"
-    placeholder="Customer Email"
-/>
-
 
 <textarea
 id="customerAddress"
 placeholder="Delivery Address"
 rows="4"></textarea>
-    
-
-<!-- Payment Method -->
-<label for="paymentMethod">ငွေပေးချေမှုပုံစံ (Payment Method)</label>
-<select id="paymentMethod" name="paymentMethod" required>
-  <option value="">ငွေပေးချေမှုပုံစံ ရွေးပါ</option>
-  <option value="KBZPay">KBZPay</option>
-  <option value="WavePay">WavePay</option>
-  <option value="Cash on Delivery">ပစ္စည်းရောက်မှ ငွေချေ (COD)</option>
-</select>
-
 
 <button
 class="main-btn"
@@ -812,15 +900,13 @@ onclick="showSection('cartSection')">
    ========================================= */
 
 
-
 const GOOGLE_SCRIPT_URL = 
-    "https://script.google.com/macros/s/AKfycbxsM1bcLgEJRSHtOhGXy_jU7QPOZz8zbQ62kqA--zhq9kxbhUmyoP621CZz8kFhn18/exec";
-    
+    "https://script.google.com/macros/s/AKfycbyush58USUfb-R-59Bn7hxNlSeMa7XnAm_M3nbCnXU_Um-04ROE2NlqHmt6qUsGdrwh8g/exec";
 
 
 /* =========================================
    CART
-   ========================================= g*/
+   ========================================= */
 
 let cart = [];
 
@@ -921,47 +1007,51 @@ document.getElementById(
    ADD COFFEE
    ========================================= */
 
+
 function addCoffeeProduct(type) {
 
     let select;
     let productName;
+    let grindType = "";
 
     if (type === "roastedBean") {
 
-        select =
-        document.getElementById(
+        select = document.getElementById(
             "roastedBeanSize"
         );
 
         productName = "Roasted Bean";
 
-    }
+    } else if (type === "coffeePowder") {
 
-    if (type === "coffeePowder") {
-
-        select =
-        document.getElementById(
+        select = document.getElementById(
             "coffeePowderSize"
         );
 
         productName = "Coffee Powder";
+
+        grindType = document.getElementById(
+            "coffeePowderType"
+        ).value;
 
     }
 
     const price = Number(select.value);
 
     const text =
-    select.options[
-        select.selectedIndex
-    ].text;
+        select.options[select.selectedIndex].text;
 
-    const size =
-    text.split("—")[0].trim();
+    const size = text.split("—")[0].trim();
 
-    addToCart(
-        productName + " " + size,
-        price
-    );
+    let finalName = productName;
+
+    if (type === "coffeePowder") {
+        finalName += " (" + grindType + ")";
+    }
+
+    finalName += " " + size;
+
+    addToCart(finalName, price);
 
 }
 
@@ -1281,24 +1371,14 @@ function placeOrder() {
     document.getElementById(
         "customerPhone"
     ).value.trim();
-    
-const email =
-    document.getElementById(
-        "customerEmail"
-    ).value.trim();
 
 
     const address =
     document.getElementById(
         "customerAddress"
     ).value.trim();
-    
-    
 
 
-const paymentMethod = 
-document.getElementById(
-"paymentMethod").value;
     if (!name || !phone || !address) {
 
         alert(
@@ -1357,10 +1437,6 @@ document.getElementById(
         phone: phone,
 
         address: address,
-        
-         email: email,
-        
-        paymentMethod: paymentMethod,
 
         products: productText,
 
