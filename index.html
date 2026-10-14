@@ -847,31 +847,53 @@ Total:
 </div>
 
 
+
 <h3>👤 Customer Information</h3>
 
 <input
-id="customerName"
-placeholder="Customer Name">
+    id="customerName"
+    placeholder="Customer Name"
+    required>
 
 <input
-id="customerPhone"
-placeholder="Phone Number"
-type="tel">
+    id="customerPhone"
+    placeholder="Phone Number"
+    type="tel"
+    required>
 
 <textarea
-id="customerAddress"
-placeholder="Delivery Address"
-rows="4"></textarea>
+    id="customerAddress"
+    placeholder="Delivery Address"
+    rows="4"
+    required></textarea>
+
+<label for="customerEmail">
+    Customer Gmail (မဖြည့်မနေရ)
+</label>
+
+<input
+    id="customerEmail"
+    type="email"
+    placeholder="example@gmail.com"
+    autocomplete="email"
+    required>
+
+<h3>💳 Payment Method</h3>
+
+<select id="paymentMethod" required>
+    <option value="">ငွေပေးချေမှုနည်းလမ်း ရွေးချယ်ပါ</option>
+    <option value="KPay">KPay (KBZPay)</option>
+    <option value="COD">COD (ပစ္စည်းရောက်မှ ငွေချေ)</option>
+</select>
 
 <button
-class="main-btn"
-onclick="placeOrder()">
-
-📦 Place Order
-
+    class="main-btn"
+    onclick="placeOrder()">
+    📦 Place Order
 </button>
 
 <div id="orderResult"></div>
+
 
 </div>
 
@@ -1379,15 +1401,27 @@ function placeOrder() {
     ).value.trim();
 
 
-    if (!name || !phone || !address) {
+    
+const email = document.getElementById(
+    "customerEmail"
+).value.trim();
 
-        alert(
-            "Please fill in Customer Name, Phone Number and Address."
-        );
+const paymentMethod = document.getElementById(
+    "paymentMethod"
+).value;
 
-        return;
+if (!name || !phone || !address || !email || !paymentMethod) {
+    alert("အချက်အလက်အားလုံး ဖြည့်ပေးပါရှင့်။");
+    return;
+}
 
-    }
+const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+if (!emailPattern.test(email)) {
+    alert("မှန်ကန်သော Gmail Address ထည့်ပေးပါရှင့်။");
+    return;
+}
+
 
 
     let subtotal = 0;
@@ -1427,26 +1461,19 @@ function placeOrder() {
     subtotal - discount;
 
 
-    const orderData = {
-
-        orderDate:
-        new Date().toLocaleString(),
-
-        name: name,
-
-        phone: phone,
-
-        address: address,
-
-        products: productText,
-
-        subtotal: subtotal,
-
-        discount: discount,
-
-        total: total
-
-    };
+    
+const orderData = {
+    orderDate: new Date().toLocaleString(),
+    name: name,
+    phone: phone,
+    address: address,
+    email: email,
+    paymentMethod: paymentMethod,
+    products: productText,
+    subtotal: subtotal,
+    discount: discount,
+    total: total
+};
 
 
     const result =
